@@ -24,6 +24,6 @@ Route::post('/add_user', [UserController::class, 'add_user'])->name('add_user');
 Route::get('/get_users', [UserController::class, 'get_users'])->name('get_users');
 Route::get('/get_user/{id}', [UserController::class, 'get_user'])->name('get_user');
 Route::post('/update_user/{id}', [UserController::class, 'update_user'])->name('update_user');
-Route::delete('/delete_user/{id}', [UserController::class, 'delete_user'])->name('delete_user');
+Route::get('/delete_user/{id}', [UserController::class, 'delete_user'])->name('delete_user');
 Route::get('/get_quizzes', [QuizController::class, 'getQuizzes'])->name('get_quizzes');
 Route::get('/get_quiz_questions/{quiz_id}', [QuizController::class, 'getQuizQuestions'])->name('get_quiz_questions');
