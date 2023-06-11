@@ -31,5 +31,32 @@ class UserController extends Controller
     $user->save();
     return response()->json(['message' => 'User created successfully!'], 200);
     }
+    public function get_users()
+    {
+    $users = User::all();
+    return response()->json(['users' => $users]);
+    }
+    public function get_user($id)
+    {
+    $user = User::find($id);
+    return response()->json(['user' => $user]);
+    }
+    public function update_user(Request $request, $id)
+    {
+    $user = User::find($id);
+    $user->name = $request->name;
+    $user->email = $request->email;
+    $user->type = 'user';
+    $user->password = Hash::make($request->password);
+    $user->quiz_id = $request->quiz_id;
+    $user->save();
+    return response()->json(['message' => 'User updated successfully!'], 200);
+    }
+    public function delete_user($id)
+    {
+    $user = User::find($id);
+    $user->delete();
+    return response()->json(['message' => 'User deleted successfully!'], 200);
+    }
 }
 
