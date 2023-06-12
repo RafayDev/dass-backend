@@ -18,6 +18,7 @@ class UserController extends Controller
         // echo "</pre>";
         // exit;
         $credentials = $request->only('email', 'password');
+        $quiz_attempt_id = 0;
         $token = auth()->attempt($credentials);
         if (!$token) {
             return response()->json(['error' => 'Unauthorized'], 401);
@@ -27,8 +28,9 @@ class UserController extends Controller
             $quiz->user_id = auth()->user()->id;
             $quiz->quiz_id = auth()->user()->quiz_id;
             $quiz->save();
+            $quiz_attempt_id = $quiz->id;
         }
-        return response()->json(['token' => $token, 'user' => auth()->user()]);
+        return response()->json(['token' => $token, 'user' => auth()->user(), 'quiz_attempt_id' => $quiz_attempt_id]);
     }
     public function add_user(Request $request)
     {
