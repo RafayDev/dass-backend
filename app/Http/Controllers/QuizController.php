@@ -16,4 +16,7 @@ class QuizController extends Controller
         $quiz_questions = QuizQuestion::where('quiz_id', $quiz_id)->get();
         return response()->json(['quiz_questions' => $quiz_questions]);
     }
+    public function submitQuiz(Request $request){
+        return response()->json(['debug' => $request], 200);
+    }
 }

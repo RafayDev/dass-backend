@@ -27,3 +27,4 @@ Route::post('/update_user/{id}', [UserController::class, 'update_user'])->name('
 Route::get('/delete_user/{id}', [UserController::class, 'delete_user'])->name('delete_user');
 Route::get('/get_quizzes', [QuizController::class, 'getQuizzes'])->name('get_quizzes');
 Route::get('/get_quiz_questions/{quiz_id}', [QuizController::class, 'getQuizQuestions'])->name('get_quiz_questions');
+Route::post('/submit_quiz', [QuizController::class, 'submitQuiz'])->name('submit_quiz');
