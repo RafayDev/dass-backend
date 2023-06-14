@@ -41,7 +41,7 @@ class QuizController extends Controller
 
 
     }
-    public function calculateDass21($respose)
+    public function calculateDass21($responses)
     {
             // Step 2: Assign numerical values
         $scores = array_map('intval', $responses);
@@ -97,11 +97,11 @@ class QuizController extends Controller
  
 
         // Return the scores as JSON response
-        return response()->json([
+        return [
             'depression_score' => $depressionScore,
             'anxiety_score' => $anxietyScore,
             'stress_score' => $stressScore,
-        ]);
+        ];
     }
     private function calculateSubscaleScore($items, $data)
     {
