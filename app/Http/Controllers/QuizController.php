@@ -41,35 +41,18 @@ class QuizController extends Controller
 
 
     }
-    public function calculateDass21($responses)
+    function calculateDass21($responses)
     {
-            // Step 2: Assign numerical values
-        $scores = array_map('intval', $responses);
-
-    
-
-        // Step 3: Reverse scoring (if applicable)
-        $reverseItems = [3, 5, 10, 13, 16, 17, 21];
-        foreach ($reverseItems as $item) {
-            $scores[$item - 1] = 3 - $scores[$item - 1];
-        }
-
-    
-
-        // Step 4: Calculate the domain scores
+        // Step 1: Calculate the domain scores
         $depressionItems = [3, 5, 10, 13, 16, 17, 21];
         $anxietyItems = [2, 4, 7, 9, 15, 19, 20];
         $stressItems = [1, 6, 8, 11, 12, 14, 18];
 
-    
+        $depressionScore = array_sum(array_intersect_key($responses, array_flip($depressionItems))) * 2;
+        $anxietyScore = array_sum(array_intersect_key($responses, array_flip($anxietyItems))) * 2;
+        $stressScore = array_sum(array_intersect_key($responses, array_flip($stressItems))) * 2;
 
-        $depressionScore = array_sum(array_intersect_key($scores, array_flip($depressionItems)));
-        $anxietyScore = array_sum(array_intersect_key($scores, array_flip($anxietyItems)));
-        $stressScore = array_sum(array_intersect_key($scores, array_flip($stressItems)));
-
-    
-
-        // Step 5: Return the domain scores
+        // Step 2: Return the domain scores
         return [
             'depression' => $depressionScore,
             'anxiety' => $anxietyScore,
