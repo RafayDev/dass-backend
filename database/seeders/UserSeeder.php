@@ -16,9 +16,9 @@ class UserSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => 'Admin',
-            'email' => 'admin@admin.com',
+            'pin_number' => '12345',
             'type' => 'admin',
-            'password' => Hash::make('123456'),
+            'cnic'=>'1234567891234',
         ]);
     }
 }

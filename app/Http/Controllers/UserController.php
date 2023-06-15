@@ -13,32 +13,29 @@ class UserController extends Controller
 {
     public function login(Request $request)
     {
-        // echo "<pre>";
-        // print_r($request->all());
-        // echo "</pre>";
-        // exit;
-        $credentials = $request->only('email', 'password');
+        $user = User::where('pin_number', $request->pin_number)->first();
         $quiz_attempt_id = 0;
-        $token = auth()->attempt($credentials);
-        if (!$token) {
-            return response()->json(['error' => 'Unauthorized'], 401);
-        }
-        if(auth()->user()->type == 'user'){
-            $quiz =new QuizAttempt();
-            $quiz->user_id = auth()->user()->id;
-            $quiz->quiz_id = auth()->user()->quiz_id;
-            $quiz->save();
-            $quiz_attempt_id = $quiz->id;
-        }
-        return response()->json(['token' => $token, 'user' => auth()->user(), 'quiz_attempt_id' => $quiz_attempt_id]);
+         if($user){
+            if($user->type == 'user'){
+             $quiz =new QuizAttempt();
+                $quiz->user_id = $user->id;
+             $quiz->quiz_id = $user->quiz_id;
+             $quiz->save();
+             $quiz_attempt_id = $quiz->id;
+            }
+                return response()->json(['user' => $user, 'quiz_attempt_id' => $quiz_attempt_id]);
+          }else{
+              return response()->json(['error' => 'Unauthorized'], 401);
+          }
     }
+
     public function add_user(Request $request)
     {
     $user = new User();
     $user->name = $request->name;
-    $user->email = $request->email;
+    $user->cnic = $request->cnic;
+    $user->pin_number = $request->pin_number;
     $user->type = 'user';
-    $user->password = Hash::make($request->password);
     $user->quiz_id = $request->quiz_id;
     $user->save();
     return response()->json(['message' => 'User created successfully!'], 200);
@@ -71,4 +68,3 @@ class UserController extends Controller
     return response()->json(['message' => 'User deleted successfully!'], 200);
     }
 }
-
