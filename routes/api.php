@@ -29,3 +29,4 @@ Route::get('/get_quizzes', [QuizController::class, 'getQuizzes'])->name('get_qui
 Route::get('/get_quiz_questions/{quiz_id}', [QuizController::class, 'getQuizQuestions'])->name('get_quiz_questions');
 Route::post('/submit_quiz', [QuizController::class, 'submitQuiz'])->name('submit_quiz');
 Route::get('/getQuizAttemptsbyUserId/{user_id}', [QuizController::class, 'getQuizAttemptsbyUserId'])->name('getQuizAttemptsbyUserId');
+Route::post('/change_pin_number', [UserController::class, 'change_pin_number'])->name('change_pin_number');

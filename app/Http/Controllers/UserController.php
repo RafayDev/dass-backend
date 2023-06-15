@@ -37,6 +37,7 @@ class UserController extends Controller
     $user->pin_number = $request->pin_number;
     $user->type = 'user';
     $user->quiz_id = $request->quiz_id;
+    $user->birth_date = $request->birth_date;
     $user->save();
     return response()->json(['message' => 'User created successfully!'], 200);
     }
@@ -66,5 +67,12 @@ class UserController extends Controller
     $user = User::find($id);
     $user->delete();
     return response()->json(['message' => 'User deleted successfully!'], 200);
+    }
+    public function change_pin_number(Request $request)
+    {
+    $user = User::find($request->user_id);
+    $user->pin_number = $request->pin_number;   
+    $user->save();
+    return response()->json(['message' => 'Pin Number changed successfully!'], 200);
     }
 }
