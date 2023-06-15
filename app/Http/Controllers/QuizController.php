@@ -31,15 +31,13 @@ class QuizController extends Controller
         }
         if($quiz_id == 2)
         {
-            $scores = $this->calculateScores($request->selected_options);
-            $quiz_attempt->stress_level = $scores['stress_score'];
-            $quiz_attempt->anxiety_level = $scores['anxiety_score'];
-            $quiz_attempt->depression_level = $scores['depression_score'];
+            $scores = $this->calculateDass42($request->selected_options);
+            $quiz_attempt->stress_level = $scores['stress'];
+            $quiz_attempt->anxiety_level = $scores['anxiety'];
+            $quiz_attempt->depression_level = $scores['depression'];
             $quiz_attempt->save();
             return response()->json(['message' => 'Quiz submitted successfully']);
         }
-
-
     }
     function calculateDass21($responses)
     {
@@ -59,42 +57,29 @@ class QuizController extends Controller
             'stress' => $stressScore,
         ];
     }
-    public function calculateScores($responses)
+    function calculateDass42($responses)
     {
-        $data = $responses;
-
- 
-
-        // Define the arrays for each subscale
-        $depressionItems = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
-        $anxietyItems = [13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24];
-        $stressItems = [25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42];
-
- 
-
-        // Calculate scores for each subscale
-        $depressionScore = $this->calculateSubscaleScore($depressionItems, $data);
-        $anxietyScore = $this->calculateSubscaleScore($anxietyItems, $data);
-        $stressScore = $this->calculateSubscaleScore($stressItems, $data);
-
- 
-
-        // Return the scores as JSON response
-        return [
-            'depression_score' => $depressionScore,
-            'anxiety_score' => $anxietyScore,
-            'stress_score' => $stressScore,
+        // Step 1: Calculate the domain scores
+        $depressionItems = [
+            0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11
         ];
-    }
-    private function calculateSubscaleScore($items, $data)
-    {
-        $score = 0;
-        foreach ($items as $item) {
-            // Assuming the answers are sent as an array with keys as the question numbers (e.g., $data['1'], $data['2'], etc.)
-            $answer = isset($data[strval($item)]) ? intval($data[strval($item)]) : 0;
-            $score += $answer;
-        }
-        return $score;
+        $anxietyItems = [
+            12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23
+        ];
+        $stressItems = [
+            24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41
+        ];
+
+        $depressionScore = array_sum(array_intersect_key($responses, array_flip($depressionItems)));
+        $anxietyScore = array_sum(array_intersect_key($responses, array_flip($anxietyItems)));
+        $stressScore = array_sum(array_intersect_key($responses, array_flip($stressItems)));
+
+        // Step 2: Return the domain scores
+        return [
+            'depression' => $depressionScore,
+            'anxiety' => $anxietyScore,
+            'stress' => $stressScore,
+        ];
     }
     public function getQuizAttemptsbyUserId($user_id){
         $quiz_attempts = QuizAttempt::where('user_id', $user_id)->join('users', 'users.id', '=', 'quiz_attempts.user_id')
