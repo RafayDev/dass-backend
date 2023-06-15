@@ -97,8 +97,7 @@ class QuizController extends Controller
         return $score;
     }
     public function getQuizAttemptsbyUserId($user_id){
-        $quiz_attempts = QuizAttempt::where('user_id', $user_id)::join('users', 'users.id', '=', 'quiz_attempts.user_id')
-        ->where('user_id', $user_id)
+        $quiz_attempts = QuizAttempt::where('user_id', $user_id)->join('users', 'users.id', '=', 'quiz_attempts.user_id')
         ->get();
         return response()->json(['quiz_attempts' => $quiz_attempts]);
     }
