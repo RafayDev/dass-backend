@@ -16,16 +16,30 @@ class QuizSeeder extends Seeder
     {
         DB::table('quizzes')->insert(
             [
-            'quiz_name' => 'Dass-21',
+            [
+            'quiz_name' => 'Dass-21-English',
             'quiz_description' => 'Dass-21',
             'created_at' => now(),
             'updated_at' => now(),
             ],
             [
-            'quiz_name' => 'Dass-42',
+            'quiz_name' => 'Dass-42-English',
             'quiz_description' => 'Dass-42',
             'created_at' => now(),
             'updated_at' => now(),
+            ],
+            [
+            'quiz_name' => 'Dass-21-Urdu',
+            'quiz_description' => 'Dass-21',
+            'created_at' => now(),
+            'updated_at' => now(),
+            ],
+            [
+            'quiz_name' => 'Dass-42-Urdu',
+            'quiz_description' => 'Dass-42',
+            'created_at' => now(),
+            'updated_at' => now(),
+            ]
             ]
     );
     }

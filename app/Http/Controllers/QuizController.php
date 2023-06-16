@@ -21,7 +21,7 @@ class QuizController extends Controller
         $quiz_id = $request->quiz_id;
         $quiz_attempt = QuizAttempt::find($request->quiz_attempt_id);
 
-        if($quiz_id == 1){
+        if($quiz_id == 1 || $quiz_id == 3){
            $scores = $this->calculateDass21($request->selected_options);
            $quiz_attempt->stress_level = $scores['stress'];
             $quiz_attempt->anxiety_level = $scores['anxiety'];
@@ -29,7 +29,7 @@ class QuizController extends Controller
             $quiz_attempt->save();
             return response()->json(['message' => 'Quiz submitted successfully']);
         }
-        if($quiz_id == 2)
+        if($quiz_id == 2 || $quiz_id == 4)
         {
             $scores = $this->calculateDass42($request->selected_options);
             $quiz_attempt->stress_level = $scores['stress'];
@@ -61,13 +61,13 @@ class QuizController extends Controller
     {
         // Step 1: Calculate the domain scores
         $depressionItems = [
-            0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11
+            3, 5, 10, 13, 16, 17, 21, 24, 26, 31, 34, 37, 38, 42
         ];
         $anxietyItems = [
-            12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23
+            2, 4, 7, 9, 15, 19, 20, 23, 25, 28, 30, 36, 40, 41
         ];
         $stressItems = [
-            24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41
+            1, 6, 8, 11, 12, 14, 18, 22, 27, 29, 32, 33, 35, 39
         ];
 
         $depressionScore = array_sum(array_intersect_key($responses, array_flip($depressionItems)));

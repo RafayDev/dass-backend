@@ -15,69 +15,101 @@ class QuestionsTable42Seeder extends Seeder
     public function run(): void
     {
         $questions = [
-            // Depression Scale
             [
                 'quiz_id' => 2,
-                'type' => 'd',
-                'question' => 'I found it hard to wind down',
+                'type' => 'a',
+                'question' => 'I found myself getting upset by quite trivial things',
             ],
             [
                 'quiz_id' => 2,
-                'type' => 'd',
-                'question' => 'I couldn’t seem to experience any positive feeling at all',
+                'type' => 'a',
+                'question' => 'I was aware of dryness of my mouth',
             ],
             [
                 'quiz_id' => 2,
-                'type' => 'd',
+                'type' => 'a',
+                'question' => 'I couldn\'t seem to experience any positive feeling at all',
+            ],
+            [
+                'quiz_id' => 2,
+                'type' => 'a',
+                'question' => 'I experienced breathing difficulty (eg, excessively rapid breathing, breathlessness in the absence of physical exertion)',
+            ],
+            [
+                'quiz_id' => 2,
+                'type' => 'a',
+                'question' => 'I just couldn\'t seem to get going',
+            ],
+            [
+                'quiz_id' => 2,
+                'type' => 'a',
+                'question' => 'I tended to over-react to situations',
+            ],
+            [
+                'quiz_id' => 2,
+                'type' => 'a',
+                'question' => 'I had a feeling of shakiness (eg, legs going to give way)',
+            ],
+            [
+                'quiz_id' => 2,
+                'type' => 'a',
+                'question' => 'I found it difficult to relax',
+            ],
+            [
+                'quiz_id' => 2,
+                'type' => 'a',
+                'question' => 'I found myself in situations that made me so anxious I was most relieved when they ended',
+            ],
+            [
+                'quiz_id' => 2,
+                'type' => 'a',
                 'question' => 'I felt that I had nothing to look forward to',
             ],
             [
                 'quiz_id' => 2,
-                'type' => 'd',
-                'question' => 'I felt down-hearted and blue',
+                'type' => 'a',
+                'question' => 'I found myself getting upset rather easily',
             ],
             [
                 'quiz_id' => 2,
-                'type' => 'd',
-                'question' => 'I was unable to become enthusiastic about anything',
+                'type' => 'a',
+                'question' => 'I felt that I was using a lot of nervous energy',
             ],
             [
                 'quiz_id' => 2,
-                'type' => 'd',
-                'question' => 'I found it difficult to work up the initiative to do things',
-            ],
-            [
-                'quiz_id' => 2,
-                'type' => 'd',
-                'question' => 'I felt that I was rather worthless',
-            ],
-            [
-                'quiz_id' => 2,
-                'type' => 'd',
-                'question' => 'I felt that life was meaningless',
-            ],
-            [
-                'quiz_id' => 2,
-                'type' => 'd',
-                'question' => 'I felt that nothing was very enjoyable',
-            ],
-            [
-                'quiz_id' => 2,
-                'type' => 'd',
-                'question' => 'I found it hard to relax',
-            ],
-            [
-                'quiz_id' => 2,
-                'type' => 'd',
+                'type' => 'a',
                 'question' => 'I felt sad and depressed',
             ],
             [
                 'quiz_id' => 2,
-                'type' => 'd',
-                'question' => 'I found it difficult to find meaning or purpose in life',
+                'type' => 'a',
+                'question' => 'I found myself getting impatient when I was delayed in any way (eg, elevators, traffic lights, being kept waiting)',
             ],
-            
-            // Anxiety Scale
+            [
+                'quiz_id' => 2,
+                'type' => 'a',
+                'question' => 'I had a feeling of faintness',
+            ],
+            [
+                'quiz_id' => 2,
+                'type' => 'a',
+                'question' => 'I felt that I had lost interest in just about everything',
+            ],
+            [
+                'quiz_id' => 2,
+                'type' => 'a',
+                'question' => 'I felt I wasn\'t worth much as a person',
+            ],
+            [
+                'quiz_id' => 2,
+                'type' => 'a',
+                'question' => 'I felt that I was rather touchy',
+            ],
+            [
+                'quiz_id' => 2,
+                'type' => 'a',
+                'question' => 'I perspired noticeably (eg, hands sweaty) in the absence of high temperatures or physical exertion',
+            ],
             [
                 'quiz_id' => 2,
                 'type' => 'a',
@@ -86,27 +118,42 @@ class QuestionsTable42Seeder extends Seeder
             [
                 'quiz_id' => 2,
                 'type' => 'a',
-                'question' => 'I felt that I was close to panic',
+                'question' => 'I felt that life wasn\'t worthwhile',
             ],
             [
                 'quiz_id' => 2,
                 'type' => 'a',
-                'question' => 'I was aware of the action of my heart in the absence of physical exertion',
+                'question' => 'I found it hard to wind down',
             ],
             [
                 'quiz_id' => 2,
                 'type' => 'a',
-                'question' => 'I felt scared for no reason',
+                'question' => 'I had difficulty in swallowing',
             ],
             [
                 'quiz_id' => 2,
                 'type' => 'a',
-                'question' => 'I felt nervous or shaky',
+                'question' => 'I couldn\'t seem to get any enjoyment out of the things I did',
             ],
             [
                 'quiz_id' => 2,
                 'type' => 'a',
-                'question' => 'I felt afraid or terrified',
+                'question' => 'I was aware of the action of my heart in the absence of physical exertion (eg, sense of heart rate increase, heart missing a beat)',
+            ],
+            [
+                'quiz_id' => 2,
+                'type' => 'a',
+                'question' => 'I felt down-hearted and blue',
+            ],
+            [
+                'quiz_id' => 2,
+                'type' => 'a',
+                'question' => 'I found that I was very irritable',
+            ],
+            [
+                'quiz_id' => 2,
+                'type' => 'a',
+                'question' => 'I felt I was close to panic',
             ],
             [
                 'quiz_id' => 2,
@@ -116,7 +163,12 @@ class QuestionsTable42Seeder extends Seeder
             [
                 'quiz_id' => 2,
                 'type' => 'a',
-                'question' => 'I felt agitated or restless',
+                'question' => 'I feared that I would be "thrown" by some trivial but unfamiliar task',
+            ],
+            [
+                'quiz_id' => 2,
+                'type' => 'a',
+                'question' => 'I was unable to become enthusiastic about anything',
             ],
             [
                 'quiz_id' => 2,
@@ -126,7 +178,37 @@ class QuestionsTable42Seeder extends Seeder
             [
                 'quiz_id' => 2,
                 'type' => 'a',
-                'question' => 'I felt panicky',
+                'question' => 'I was in a state of nervous tension',
+            ],
+            [
+                'quiz_id' => 2,
+                'type' => 'a',
+                'question' => 'I felt I was pretty worthless',
+            ],
+            [
+                'quiz_id' => 2,
+                'type' => 'a',
+                'question' => 'I was intolerant of anything that kept me from getting on with what I was doing',
+            ],
+            [
+                'quiz_id' => 2,
+                'type' => 'a',
+                'question' => 'I felt terrified',
+            ],
+            [
+                'quiz_id' => 2,
+                'type' => 'a',
+                'question' => 'I could see nothing in the future to be hopeful about',
+            ],
+            [
+                'quiz_id' => 2,
+                'type' => 'a',
+                'question' => 'I felt that life was meaningless',
+            ],
+            [
+                'quiz_id' => 2,
+                'type' => 'a',
+                'question' => 'I found myself getting agitated',
             ],
             [
                 'quiz_id' => 2,
@@ -136,99 +218,12 @@ class QuestionsTable42Seeder extends Seeder
             [
                 'quiz_id' => 2,
                 'type' => 'a',
-                'question' => 'I felt that I was going to be trapped in certain situations',
-            ],
-            
-            // Stress Scale
-            [
-                'quiz_id' => 2,
-                'type' => 's',
-                'question' => 'I found myself getting upset rather easily',
+                'question' => 'I experienced trembling (eg, in the hands)',
             ],
             [
                 'quiz_id' => 2,
-                'type' => 's',
-                'question' => 'I found it hard to unwind',
-            ],
-            [
-                'quiz_id' => 2,
-                'type' => 's',
-                'question' => 'I felt that I was under constant pressure',
-            ],
-            [
-                'quiz_id' => 2,
-                'type' => 's',
-                'question' => 'I was intolerant of anything that slowed me down',
-            ],
-            [
-                'quiz_id' => 2,
-                'type' => 's',
-                'question' => 'I felt that I was rather touchy',
-            ],
-            [
-                'quiz_id' => 2,
-                'type' => 's',
-                'question' => 'I was aware of dryness of my mouth',
-            ],
-            [
-                'quiz_id' => 2,
-                'type' => 's',
-                'question' => 'I found it difficult to cope with all the things I had to do',
-            ],
-            [
-                'quiz_id' => 2,
-                'type' => 's',
-                'question' => 'I felt that I was not doing well in life',
-            ],
-            [
-                'quiz_id' => 2,
-                'type' => 's',
-                'question' => 'I felt that I was not making progress',
-            ],
-            [
-                'quiz_id' => 2,
-                'type' => 's',
-                'question' => 'I found myself getting angry because of things that were outside my control',
-            ],
-            [
-                'quiz_id' => 2,
-                'type' => 's',
-                'question' => 'I felt run down and drained of physical or emotional energy',
-            ],
-            [
-                'quiz_id' => 2,
-                'type' => 's',
-                'question' => 'I felt that I was unable to overcome my difficulties',
-            ],
-            [
-                'quiz_id' => 2,
-                'type' => 's',
-                'question' => 'I felt that I was pretty hopeless about the future',
-            ],
-            [
-                'quiz_id' => 2,
-                'type' => 's',
-                'question' => 'I felt that I was trapped by my life circumstances',
-            ],
-            [
-                'quiz_id' => 2,
-                'type' => 's',
-                'question' => 'I felt that everything was an effort',
-            ],
-            [
-                'quiz_id' => 2,
-                'type' => 's',
-                'question' => 'I found it hard to concentrate',
-            ],
-            [
-                'quiz_id' => 2,
-                'type' => 's',
-                'question' => 'I found it difficult to relax after a difficult day',
-            ],
-            [
-                'quiz_id' => 2,
-                'type' => 's',
-                'question' => 'I felt that I was not in control of the important things in my life',
+                'type' => 'a',
+                'question' => 'I found it difficult to work up the initiative to do things',
             ],
         ];
     DB::table('quiz_questions')->insert($questions);
